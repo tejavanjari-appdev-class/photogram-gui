@@ -4,6 +4,9 @@ get("/", {:controller => "users", :action => "index"})
 #user routs
 get("/users", {:controller => "users", :action => "index"})
 get("/users/:username", {:controller => "users", :action => "show"})
+get("/insert_user_record", {:controller => "users", :action => "insert"})
+get("/update_user/:user_id", {:controller => "users", :action => "update"})
+
 
 
 #photo routes

@@ -10,4 +10,26 @@ class UsersController < ApplicationController
 
     render({:template => "/user_templates/show.html.erb"})
   end
+
+  def insert
+    username = params.fetch("input_username")
+    
+    new_user = User.new
+    new_user.username = username
+    new_user.save
+    redirect_to("/users")
+  end
+
+  def update
+    user_id = params.fetch("user_id")
+    new_username = params.fetch("input_username")
+
+    user = User.where({:id => user_id}).first
+    user.username = new_username
+
+    user.save
+
+    redirect_to("/users/"+new_username)
+
+  end
 end
